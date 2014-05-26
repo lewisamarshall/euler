@@ -1,12 +1,10 @@
 import csv
 import time
-tic=time.clock()
 tri = []
-with open('018.dlm') as inputfile:
+with open('triangle.txt') as inputfile:
     for row in csv.reader(inputfile, delimiter=' ', ):
         tri.append(map(int, row))
 
-print tri
 tri.reverse()
 for idx, row in enumerate(tri):
     print idx
@@ -14,5 +12,3 @@ for idx, row in enumerate(tri):
         for jdx, element in enumerate(row):
             tri[idx][jdx]+=max(tri[idx-1][jdx:jdx+2])
         print tri[idx]
-toc=time.clock()
-print 'time to complete:', (toc-tic)*1000, 's'
