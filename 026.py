@@ -1,13 +1,20 @@
-longest_repeat=0
-num=1
-for d in range(1,11):
-    print d
-    repeat=1
-    while  (10**repeat%d and (10**repeat-1)%d):
-        repeat+=1
-    if repeat>longest_repeat:
-        longest_repeat=repeat
-        num=d
-    print d, repeat
+def recip_test(d):
+    n = 1
+    numerators = []
+    while True:
+        if n == 0:
+            return False
+        elif n in numerators:
+            return len(numerators)-numerators.index(n)
+        elif n//d == 0:
+            n *= 10
+        else:
+            numerators.append(n)
+            n = n % d
 
-print(longest_repeat, num)
+
+
+recip_length = {d: recip_test(d) for d in range(2, 1000)}
+
+longest_repeat = max(recip_length.values())
+print recip_length.keys()[recip_length.values().index(longest_repeat)], longest_repeat
