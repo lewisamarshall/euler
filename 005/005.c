@@ -1,18 +1,26 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include <math.h>
 
 int *factor(int product) {
 
-  int *result = calloc(product/2, sizeof(int));
+  // upper bound on number of factors is log 2
+  int bound = log((float) product) / log(2.0);
 
-  int remaining = product;
+  int *result = calloc(bound, sizeof(int));
 
-  for (int n = 2; n <= remaining ; n++) {
-    while (remaining % n == 0){
-      result[n]++;
-      remaining /= n;
+  int loc = 0;
+  for (int n = 2; n <= product; n++) {
+    while (product % n == 0){
+      if (loc>bound){
+        result[0] = -1;
+      }
+      result[loc] = n;
+      loc++;
+      product /= n;
     }
   }
+  result[loc] = -1;
   return result;
 }
 
@@ -20,10 +28,8 @@ int main(){
   int value = 12214;
   int *result = factor(value);
   // print results
-  for (int i = 0; i < value/2; i++) {
-    if (result[i]){
-      printf("%i^%i\n", i, result[i]);
-    }
+  for (int i = 0; result[i]!=-1; i++) {
+    printf("%i\n", result[i]);
   }
   return 0;
 }
