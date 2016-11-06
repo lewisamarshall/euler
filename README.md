@@ -1,4 +1,4 @@
 euler
 =====
 
-Python implementation of Project Euler problems.
+Library of solutions to Project Euler problems.
