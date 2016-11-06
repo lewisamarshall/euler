@@ -1,30 +1,30 @@
+#include <stdlib.h>
 #include <stdio.h>
 
-int product;
+int *factor(int product) {
 
-int factor(int product) {
-  int factors[product];
-  factors[0] = 0;
-  factors[1] = 0;
+  int *result = calloc(product/2, sizeof(int));
+
   int remaining = product;
-  for (int n = 2; n < product; n++) {
-    factors[n] = 0;
+
+  for (int n = 2; n <= remaining ; n++) {
     while (remaining % n == 0){
-      factors[n]++;
+      result[n]++;
       remaining /= n;
     }
   }
-  for (int i = 0; i < product; i++) {
-    if (factors[i]){
-      printf("%i^%i\n", i, factors[i]);
-    }
-
-  }
-  return factors[2];
+  return result;
 }
 
 int main(){
-  factor(222222);
+  int value = 12214;
+  int *result = factor(value);
+  // print results
+  for (int i = 0; i < value/2; i++) {
+    if (result[i]){
+      printf("%i^%i\n", i, result[i]);
+    }
+  }
   return 0;
 }
 
