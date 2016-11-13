@@ -9,4 +9,5 @@ while len(divs) < 500:
     factors = factorize(triangle)
     divs = divisors(factors)
 
-print triangle
+print(triangle)
+print(factorize(triangle))
