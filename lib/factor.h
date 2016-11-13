@@ -1,1 +1,1 @@
-extern int *factor(int product);
+extern long *factor(long product);

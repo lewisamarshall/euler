@@ -3,12 +3,12 @@
 #include <math.h>
 #include "factor.h"
 
-int *factor(int product) {
+long *factor(long product) {
 
   // upper bound on number of factors is log 2
   int bound = log((float) product) / log(2.0);
 
-  int *result = calloc(bound, sizeof(int));
+  long *result = calloc(bound, sizeof(long));
 
   int loc = 0;
   for (int n = 2; n <= product; n++) {
