@@ -10,4 +10,4 @@ def eratosthenes(n):
     return [k for k,v in a.items() if v]
 
 if __name__=='__main__':
-  print eratosthenes(1000)
+  print(eratosthenes(1000000))
