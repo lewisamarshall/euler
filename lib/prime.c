@@ -1,8 +1,9 @@
 #include "prime.h"
+#include <stdlib.h>
 #include <stdio.h>
 #include <math.h>
 
-int prime(value){
+int prime(long value){
   if (value<2) {
     return 0;
   }
@@ -23,4 +24,16 @@ int prime(value){
     divisor += 6;
   }
   return 1;
+}
+
+int main(int argc, char * argv[]) {
+  char *ptr;
+  long n = strtol(argv[1], &ptr, 10);
+  int p = prime(n);
+  if (p){
+    puts("True");
+  }else{
+    puts("False");
+  }
+  return 0;
 }

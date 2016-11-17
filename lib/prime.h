@@ -1,1 +1,1 @@
-extern int prime(int value);
+extern int prime(long value);

@@ -24,3 +24,16 @@ long *factor(long product) {
   result[loc] = -1;
   return result;
 }
+
+int main(int argc, char * argv[]) {
+  char *ptr;
+  long n = strtol(argv[1], &ptr, 10);
+  long *p = factor(n);
+  for (size_t i = 0; p[i]!=-1; i++) {
+    printf("%li\n", p[i]);
+  }
+
+  free(p);
+
+  return 0;
+}
