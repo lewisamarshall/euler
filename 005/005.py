@@ -1,4 +1,3 @@
-from __future__ import print_function
 pfactors = [2, 3, 5, 7, 11, 13, 17, 19]
 factor_number = [0]*8
 for n in range(1, 20):
